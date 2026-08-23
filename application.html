@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthCore | Formulario de consulta de pacientes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="min-h-screen flex flex-col">
+    <header class="bg-white shadow">
+      <div class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="index.html" class="flex items-center space-x-2">
+          <span class="text-lg font-semibold">HealthCore</span>
+        </a>
+        <span class="text-sm text-gray-600">Formulario de consulta</span>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <section class="max-w-3xl mx-auto px-4 py-8">
+        <h1 class="text-2xl font-semibold mb-2">Formulario de consulta para pacientes</h1>
+        <p class="text-sm mb-6">
+          Completa este formulario y recepción se pondrá en contacto contigo para confirmar una cita.
+        </p>
+
+        <form id="patient-enquiry-form" novalidate class="space-y-6">
+          <!-- Nombre y Apellido -->
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label for="first_name" class="block text-sm font-medium">Nombre</label>
+              <input type="text" id="first_name" name="first_name"
+                     class="mt-1 block w-full border rounded-md px-3 py-2"
+                     required />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error-for="first_name"></p>
+            </div>
+            <div>
+              <label for="last_name" class="block text-sm font-medium">Apellido</label>
+              <input type="text" id="last_name" name="last_name"
+                     class="mt-1 block w-full border rounded-md px-3 py-2"
+                     required />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error-for="last_name"></p>
+            </div>
+          </div>
+
+          <!-- Fecha de nacimiento -->
+          <div>
+            <label for="date_of_birth" class="block text-sm font-medium">Fecha de nacimiento</label>
+            <input type="date" id="date_of_birth" name="date_of_birth"
+                   class="mt-1 block w-full border rounded-md px-3 py-2"
+                   required />
+            <p class="mt-1 text-xs text-red-600 hidden" data-error-for="date_of_birth"></p>
+          </div>
+
+          <!-- Email y Teléfono -->
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label for="email" class="block text-sm font-medium">Correo electrónico</label>
+              <input type="email" id="email" name="email"
+                     class="mt-1 block w-full border rounded-md px-3 py-2"
+                     required />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error-for="email"></p>
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium">Número de teléfono</label>
+              <input type="tel" id="phone" name="phone"
+                     class="mt-1 block w-full border rounded-md px-3 py-2"
+                     placeholder="+1 305 555 0191"
+                     required />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error-for="phone"></p>
+            </div>
+          </div>
+
+          <!-- Idioma preferido -->
+          <div>
+            <label for="preferred_language" class="block text-sm font-medium">Idioma preferido</label>
+            <select id="preferred_language" name="preferred_language"
+                    class="mt-1 block w-full border rounded-md px-3 py-2"
+                    required>
+              <option value="">Selecciona un idioma</option>
+              <option value="English">English</option>
+              <option value="Spanish">Spanish</option>
+            </select>
+            <p class="mt-1 text-xs text-red-600 hidden" data-error-for="preferred_language"></p>
+          </div>
+
+          <!-- Clínica preferida -->
+          <div>
+            <label for="preferred_clinic" class="block text-sm font-medium">Clínica preferida</label>
+            <select id="preferred_clinic" name="preferred_clinic"
+                    class="mt-1 block w-full border rounded-md px-3 py-2"
+                    required>
+              <option value="">Selecciona una clínica</option>
+              <option value="HealthCore Austin Central">HealthCore Austin Central</option>
+              <option value="HealthCore Austin North">HealthCore Austin North</option>
+              <option value="HealthCore San Antonio">HealthCore San Antonio</option>
+              <option value="HealthCore Miami">HealthCore Miami</option>
+              <option value="HealthCore Orlando">HealthCore Orlando</option>
+              <option value="HealthCore Atlanta">HealthCore Atlanta</option>
+            </select>
+            <p class="mt-1 text-xs text-red-600 hidden" data-error-for="preferred_clinic"></p>
+          </div>
+
+          <!-- Fecha y franja horaria preferida -->
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label for="preferred_date" class="block text-sm font-medium">Fecha preferida</label>
+              <input type="date" id="preferred_date" name="preferred_date"
+                     class="mt-1 block w-full border rounded-md px-3 py-2"
+                     required />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error-for="preferred_date"></p>
+            </div>
+            <div>
+              <label for="preferred_time" class="block text-sm font-medium">Franja horaria preferida</label>
+              <select id="preferred_time" name="preferred_time"
+                      class="mt-1 block w-full border rounded-md px-3 py-2"
+                      required>
+                <option value="">Selecciona una franja</option>
+                <option value="Morning">Morning (7am–12pm)</option>
+                <option value="Afternoon">Afternoon (12pm–5pm)</option>
+                <option value="Evening">Evening (5pm–8pm)</option>
+              </select>
+              <p class="mt-1 text-xs text-red-600 hidden" data-error-for="preferred_time"></p>
+              <p class="mt-1 text-xs text-amber-600 hidden" data-warning-for="preferred_time"></p>
+            </div>
+          </div>
+
+          <!-- Servicio requerido -->
+          <div>
+            <label for="service_type" class="block text-sm font-medium">Servicio requerido</label>
+            <select id="service_type" name="service_type"
+                    class="mt-1 block w-full border rounded-md px-3 py-2"
+                    required>
+              <option value="">Selecciona un servicio</option>
+              <option value="Primary Care">Primary Care</option>
+              <option value="Chronic Disease Management">Chronic Disease Management</option>
+              <option value="Specialist Consultation">Specialist Consultation</option>
+              <option value="Preventive Health">Preventive Health</option>
+              <option value="Women's Health">Women's Health</option>
+              <option value="Paediatric Care">Paediatric Care</option>
+              <option value="Mental Health">Mental Health</option>
+            </select>
+            <p class="mt-1 text-xs text-red-600 hidden" data-error-for="service_type"></p>
+          </div>
+
+          <!-- Primera visita -->
+          <fieldset class="mt-4">
+            <legend class="text-sm font-medium mb-1">¿Es tu primera visita a HealthCore?</legend>
+            <div class="flex space-x-4">
+              <label class="inline-flex items-center">
+                <input type="radio" name="new_patient" value="Yes" class="mr-2" required />
+                <span>Yes</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="new_patient" value="No" class="mr-2" required />
+                <span>No</span>
+              </label>
+            </div>
+            <p class="mt-1 text-xs text-red-600 hidden" data-error-for="new_patient"></p>
+          </fieldset>
+
+          <!-- Patient ID condicional -->
+          <div id="patient-id-wrapper" class="hidden mt-2">
+            <label for="patient_id" class="block text-sm font-medium">Patient ID (opcional)</label>
+            <input type="text" id="patient_id" name="patient_id"
+                   class="mt-1 block w-full border rounded-md px-3 py-2"
+                   placeholder="HC-A3F291" />
+            <p class="mt-1 text-xs text-red-600 hidden" data-error-for="patient_id"></p>
+          </div>
+
+          <!-- Seguro médico -->
+          <fieldset class="mt-4">
+            <legend class="text-sm font-medium mb-1">¿Tienes seguro médico?</legend>
+            <div class="flex space-x-4">
+              <label class="inline-flex items-center">
+                <input type="radio" name="has_insurance" value="Yes" class="mr-2" required />
+                <span>Yes</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="has_insurance" value="No" class="mr-2" required />
+                <span>No</span>
+              </label>
+            </div>
+            <p class="mt-1 text-xs text-red-600 hidden" data-error-for="has_insurance"></p>
+          </fieldset>
+
+          <!-- Campos de seguro condicionales -->
+          <div id="insurance-fields" class="hidden mt-2 space-y-4">
+            <div>
+              <label for="insurance_provider" class="block text-sm font-medium">Aseguradora</label>
+              <input type="text" id="insurance_provider" name="insurance_provider"
+                     class="mt-1 block w-full border rounded-md px-3 py-2" />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error-for="insurance_provider"></p>
+            </div>
+            <div>
+              <label for="insurance_member_id" class="block text-sm font-medium">ID de afiliado</label>
+              <input type="text" id="insurance_member_id" name="insurance_member_id"
+                     class="mt-1 block w-full border rounded-md px-3 py-2" />
+              <p class="mt-1 text-xs text-red-600 hidden" data-error-for="insurance_member_id"></p>
+            </div>
+          </div>
+
+          <!-- Consulta médica -->
+          <div>
+            <label for="health_concern" class="block text-sm font-medium">
+              Descripción breve de tu consulta médica
+            </label>
+            <textarea id="health_concern" name="health_concern" rows="4"
+                      class="mt-1 block w-full border rounded-md px-3 py-2"
+                      maxlength="500" required></textarea>
+            <div class="flex justify-between items-center mt-1">
+              <p class="text-xs text-red-600 hidden" data-error-for="health_concern"></p>
+              <p class="text-xs text-gray-600">
+                <span id="health_concern_count">0</span>/500 caracteres
+              </p>
+            </div>
+          </div>
+
+          <!-- Consentimiento -->
+          <div class="mt-4">
+            <label class="inline-flex items-center">
+              <input type="checkbox" id="contact_consent" name="contact_consent" class="mr-2" required />
+              <span class="text-sm">Consiento que HealthCore me contacte</span>
+            </label>
+            <p class="mt-1 text-xs text-red-600 hidden" data-error-for="contact_consent"></p>
+          </div>
+
+          <!-- Mensaje de éxito -->
+          <div id="success-message" class="hidden mt-6 bg-green-50 border border-green-200 text-green-900 rounded-md p-4 text-sm">
+            <p class="font-semibold mb-2">Gracias por contactar a HealthCore.</p>
+            <p class="mb-2">
+              Hemos recibido tu consulta. Un miembro de nuestro equipo de recepción se pondrá en contacto contigo dentro de 1 día hábil para confirmar los detalles de tu cita y responder cualquier pregunta.
+            </p>
+            <p class="mb-2">
+              Si necesitas asistencia urgente, llama directamente a tu clínica preferida usando los números listados en nuestro sitio web.
+            </p>
+            <p>Esperamos poder atenderte pronto.</p>
+          </div>
+
+          <!-- Botón enviar -->
+          <div class="mt-6">
+            <button type="submit"
+                    class="bg-blue-600 text-white px-6 py-2 rounded-md shadow hover:bg-blue-700">
+              Enviar consulta
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300">
+      <div class="max-w-3xl mx-auto px-4 py-4 text-xs flex justify-between">
+        <span>© 2025 HealthCore.</span>
+        <a href="index.html" class="hover:text-white">Volver al inicio</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="validation.js"></script>
+</body>
+</html>
+
